@@ -3,7 +3,7 @@ const hbs = require("hbs");
 
 const app = express();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 hbs.registerPartials(__dirname + "/views/partials");
 
@@ -24,6 +24,12 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.render("about.hbs");
+});
+
+app.get("/board", (req, res) => {
+  res.render("board.hbs", {
+    Title: "board"
+  });
 });
 
 app.listen(port);
